@@ -72,9 +72,10 @@ Material:
     - _Layer_Zoom: 1.58
     - _Metallic: 0
     - _Mode: 0
-    - _Num_Layers: 6
+    - _Num_Layers: 10
     - _OcclusionStrength: 1
     - _Parallax: 0.02
+    - _Rotation_Direction: 1
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
