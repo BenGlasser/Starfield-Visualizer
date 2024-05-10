@@ -69,10 +69,10 @@ Material:
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _Layer_Density: 1
-    - _Layer_Zoom: 1.58
+    - _Layer_Zoom: 3.84
     - _Metallic: 0
     - _Mode: 0
-    - _Num_Layers: 10
+    - _Num_Layers: 8
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _Rotation_Direction: 1

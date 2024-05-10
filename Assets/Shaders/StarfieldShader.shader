@@ -17,8 +17,8 @@ Shader "Custom/StarfieldShader"
         Pass
         {
             CGPROGRAM
-// Upgrade NOTE: excluded shader from DX11, OpenGL ES 2.0 because it uses unsized arrays
-#pragma exclude_renderers d3d11 gles
+            // Upgrade NOTE: excluded shader from DX11, OpenGL ES 2.0 because it uses unsized arrays
+            #pragma exclude_renderers d3d11 gles
             #pragma vertex vert
             #pragma fragment frag
 
@@ -56,8 +56,8 @@ Shader "Custom/StarfieldShader"
 
                 v.uv = ((v.uv - .5)  * _ScreenParams.xy) / _ScreenParams.y; // normalize the uv
                 v.uv *= 3.0; // zoom scalar
-                o.uv = rot(v.uv, _Time*1); // rotate the uv
                 
+                o.uv = v.uv;
                 return o;
             }
 
@@ -129,12 +129,10 @@ Shader "Custom/StarfieldShader"
             {
                 float3 col = float3(0, 0, 0);
                 float time = _Time; // TODO add time_scalar property
-                int band = length(i.uv)*3;
                 
                 for (float g = 0; g < 1; g+= 1.0 / _Num_Layers)
                 {   
-                    float depth_pulse = lerp(0,.02,_Bands[band])*_Bands[band];
-                    float depth = frac(g + time + depth_pulse);
+                    float depth = frac(g + time);
                     float scale = lerp(_Layer_Zoom, .5, depth);
                     float fade = depth * smoothstep(1, .9, depth);
                     col += starLayer(i.uv * scale + g*453.2) * fade;
